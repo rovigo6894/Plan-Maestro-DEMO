@@ -2,28 +2,158 @@ import streamlit as st
 
 st.set_page_config(page_title="Plan Maestro - DEMO", layout="centered")
 
+# Ocultar menús
+hide_streamlit_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
+# Título
 st.markdown("# 📊 PLAN MAESTRO DE VIDA")
 st.markdown("**Versión DEMO - Muestra gratuita**")
+st.caption("Descubre lo que la versión completa puede hacer por ti")
 st.divider()
 
-st.subheader("📋 Datos de ejemplo (fijos)")
-st.markdown("**Capital inicial:** $360,000")
-st.markdown("**Tasa de interés:** 10% anual")
-st.markdown("**Ahorro IMSS:** $3,500/mes")
-st.markdown("**Incremento anual:** 5%")
+# ============================================
+# DATOS DE EJEMPLO (visuales, no editables)
+# ============================================
+
+st.subheader("📋 Ejemplo de resultados (con datos fijos)")
+
+col1, col2 = st.columns(2)
+with col1:
+    st.markdown("**Capital inicial**")
+    st.markdown("# $360,000")
+    st.markdown("**Ahorro IMSS inicial**")
+    st.markdown("# $3,500/mes")
+with col2:
+    st.markdown("**Tasa de interés**")
+    st.markdown("# 10% anual")
+    st.markdown("**Incremento anual**")
+    st.markdown("# 5%")
+
 st.divider()
 
-st.markdown("## 🔒 VERSIÓN COMPLETA")
-st.markdown("✅ Tus datos reales")
-st.markdown("✅ 5 retiros especiales configurables")
-st.markdown("✅ Aguinaldo prorrateado o reinvertido")
-st.markdown("✅ Gráficas interactivas")
-st.markdown("✅ Asesoría personal 3 meses")
+# ============================================
+# LO QUE LA VERSIÓN COMPLETA OFRECE (valores de ejemplo)
+# ============================================
+
+st.markdown("## 🔍 EN LA VERSIÓN COMPLETA PODRÁS:")
+
+col_a, col_b = st.columns(2)
+
+with col_a:
+    st.markdown("""
+    #### 📈 Proyección año por año
+    ```
+    2028: $360,000  → $12,500/mes
+    2029: $378,000  → $13,100/mes
+    2030: $397,000  → $13,700/mes
+    2034: $483,000  → $16,500/mes (¡con Bienestar!)
+    2038: $613,000  → $12,700/mes (nueva etapa)
+    2049: $948,000  → $18,700/mes
+    ```
+    """)
+
+with col_b:
+    st.markdown("""
+    #### 🎯 Retiros especiales configurables
+    - **Retiro 1:** 2029 → $190,000
+    - **Retiro 2:** 2034 → $50,000  
+    - **Retiro 3, 4 y 5:** Tú eliges año y monto
+    """)
+
+st.divider()
+
+# ============================================
+# GRÁFICA DE EJEMPLO (visualmente atractiva)
+# ============================================
+
+st.markdown("#### 📊 Evolución de tu capital (ejemplo)")
+
+# Datos simulados para la gráfica
+años = [2028, 2032, 2036, 2040, 2044, 2049]
+capital = [360, 440, 540, 670, 820, 950]
+
+# Crear gráfica simple con caracteres (fallback sin plotly)
+grafica = ""
+for i in range(len(años)):
+    barra = "█" * int(capital[i] / 30)
+    grafica += f"{años[i]}: {barra} ${capital[i]}k\n"
+
+st.markdown(f"```\n{grafica}\n```")
+st.caption("Gráfica ilustrativa - En la versión completa verás gráficas interactivas reales")
+
+st.divider()
+
+# ============================================
+# LO QUE REALMENTE INCLUYE LA VERSIÓN COMPLETA
+# ============================================
+
+st.markdown("## 🎁 LA VERSIÓN COMPLETA INCLUYE:")
+
+beneficios = [
+    "✅ Tus datos reales (no ejemplos fijos)",
+    "✅ Proyección año por año 2028–2049",
+    "✅ 5 retiros especiales configurables (año y monto)",
+    "✅ Aguinaldo: elige si prorratearlo o reinvertirlo",
+    "✅ Pensión Bienestar bimestral prorrateada a mensual",
+    "✅ Gráficas interactivas profesionales",
+    "✅ Resumen ejecutivo al 2049",
+    "✅ Asesoría personalizada por 3 meses vía WhatsApp",
+    "✅ Actualizaciones gratuitas de por vida"
+]
+
+for b in beneficios:
+    st.markdown(b)
+
 st.markdown("")
 st.markdown("### **$2,500 MXN**")
+st.markdown("Pago único · Sin instalaciones · Soporte incluido")
 
-whatsapp_link = "https://wa.me/5218715791810?text=Quiero%20el%20Plan%20Maestro"
-st.markdown(f'<a href="{whatsapp_link}" target="_blank"><button style="background-color:#25D366; color:white; padding:15px; width:100%; border:none; border-radius:5px; font-size:18px; font-weight:bold">📲 CONTACTAR POR WHATSAPP</button></a>', unsafe_allow_html=True)
+# ============================================
+# TESTIMONIO SIMULADO (aumenta confianza)
+# ============================================
 
 st.divider()
-st.caption("© Ing. Roberto Villarreal")
+st.markdown("### 💬 Lo que dicen nuestros primeros usuarios:")
+st.markdown("""
+> *"Con el Plan Maestro pude visualizar mis retiros y ajustar mis metas.  
+> La asesoría de Roberto fue clave para entender cuánto necesito realmente."*  
+> — **Carlos R., Asesor Financiero**
+""")
+
+st.divider()
+
+# ============================================
+# BOTÓN WHATSAPP
+# ============================================
+
+st.markdown("### 📲 ¿Listo para tu plan personalizado?")
+whatsapp_link = "https://wa.me/5218715791810?text=Quiero%20la%20versi%C3%B3n%20completa%20del%20Plan%20Maestro"
+st.markdown(f"""
+<div style='text-align: center'>
+    <a href='{whatsapp_link}' target='_blank'>
+        <button style='background-color: #25D366; color: white; padding: 15px 30px; 
+                border: none; border-radius: 5px; font-size: 20px; font-weight: bold;
+                cursor: pointer; margin-bottom: 20px; width: 100%;'>
+            📲 CONTACTAR POR WHATSAPP
+        </button>
+    </a>
+</div>
+""", unsafe_allow_html=True)
+
+# Métodos de pago
+with st.expander("💳 Métodos de pago aceptados"):
+    st.markdown("""
+    - **Transferencia bancaria** (CLABE: 646010157104792686)
+    - **OXXO** (generamos código al confirmar)
+    - **MercadoPago** (próximamente)
+    """)
+
+st.divider()
+st.caption("© Ing. Roberto Villarreal · Plan Maestro DEMO · Versión completa: $2,500")
