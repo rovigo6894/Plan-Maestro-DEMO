@@ -19,7 +19,7 @@ st.caption("Descubre lo que la versión completa puede hacer por ti")
 st.divider()
 
 # ============================================
-# DATOS DE EJEMPLO (visuales, no editables)
+# DATOS DE EJEMPLO
 # ============================================
 
 st.subheader("📋 Ejemplo de resultados (con datos fijos)")
@@ -39,7 +39,7 @@ with col2:
 st.divider()
 
 # ============================================
-# LO QUE LA VERSIÓN COMPLETA OFRECE (valores de ejemplo)
+# LO QUE LA VERSIÓN COMPLETA OFRECE
 # ============================================
 
 st.markdown("## 🔍 EN LA VERSIÓN COMPLETA PODRÁS:")
@@ -53,8 +53,8 @@ with col_a:
     2028: $360,000  → $12,500/mes
     2029: $378,000  → $13,100/mes
     2030: $397,000  → $13,700/mes
-    2034: $483,000  → $16,500/mes (¡con Bienestar!)
-    2038: $613,000  → $12,700/mes (nueva etapa)
+    2034: $483,000  → $16,500/mes
+    2038: $613,000  → $12,700/mes
     2049: $948,000  → $18,700/mes
     ```
     """)
@@ -70,16 +70,14 @@ with col_b:
 st.divider()
 
 # ============================================
-# GRÁFICA DE EJEMPLO (visualmente atractiva)
+# GRÁFICA ILUSTRATIVA
 # ============================================
 
 st.markdown("#### 📊 Evolución de tu capital (ejemplo)")
 
-# Datos simulados para la gráfica
 años = [2028, 2032, 2036, 2040, 2044, 2049]
 capital = [360, 440, 540, 670, 820, 950]
 
-# Crear gráfica simple con caracteres (fallback sin plotly)
 grafica = ""
 for i in range(len(años)):
     barra = "█" * int(capital[i] / 30)
@@ -91,7 +89,7 @@ st.caption("Gráfica ilustrativa - En la versión completa verás gráficas inte
 st.divider()
 
 # ============================================
-# LO QUE REALMENTE INCLUYE LA VERSIÓN COMPLETA
+# BENEFICIOS DETALLADOS
 # ============================================
 
 st.markdown("## 🎁 LA VERSIÓN COMPLETA INCLUYE:")
@@ -113,10 +111,10 @@ for b in beneficios:
 
 st.markdown("")
 st.markdown("### **$2,500 MXN**")
-st.markdown("Pago único · Sin instalaciones · Soporte incluido")
+st.markdown("")  # Línea vacía, sin "Pago único"
 
 # ============================================
-# TESTIMONIO SIMULADO (aumenta confianza)
+# TESTIMONIO
 # ============================================
 
 st.divider()
